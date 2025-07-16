@@ -61,15 +61,15 @@
             <nav class="flex justify-center items-center w-full">
                 <div class="flex items-center sm:gap-3 md:gap-5 bg-black border border-[#ffffff23] rounded-[40px] px-[4px] md:px-6 md:py-5 shadow-[0px_4px_12px_#888888ff]">
                     <div class="flex items-center gap-2 md:gap-5">
-                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors">Project</button>
+                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors" onclick="window.location = '#projects'">Project</button>
                         <div class="w-[1px] h-2 bg-[#d3d4d7]"></div>
                         <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors" onclick="window.location = 'https://docs.google.com/document/d/19V0YsAkp2UGPtw4vJnd7gJZeZ_CEPHrx/edit?usp=drivesdk&ouid=110181126624856182170&rtpof=true&sd=true'">Resume</button>
                         <div class="w-[1px] h-2 bg-[#d3d4d7]"></div>
-                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors">About</button>
+                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors" onclick="window.location = '#about'">About</button>
                         <div class="w-[1px] h-2 bg-[#d3d4d7]"></div>
-                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors">Contact</button>
+                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors" onclick="window.location = '#contact'">Contact</button>
                         <div class="w-[1px] h-2 bg-[#d3d4d7]"></div>
-                        <button class="bg-[#40c9fd] text-[#e9ecef] my-4 md:my-0 px-2 py-[3px] md:px-4 md:py-3 rounded-2xl text-[7px] md:text-base font-medium hover:bg-[#375ad8] duration-300 transition-colors">Let's work 💻</button>
+                        <button class="bg-[#40c9fd] text-[#e9ecef] my-4 md:my-0 px-2 py-[3px] md:px-4 md:py-3 rounded-2xl text-[7px] md:text-base font-medium hover:bg-[#375ad8] duration-300 transition-colors" onclick="window.location = '#contact'">Let's work 💻</button>
                     </div>
                 </div>
             </nav>
@@ -90,13 +90,15 @@
                     <div class="absolute w-6 h-6 md:w-12 md:h-12 bg-white -translate-y-4 ml-8 sm:ml-[48px] -z-10"></div>
                     <div class="flex absolute ml-[300px] md:ml-[120px] mt-2 -translate-y-40 w-6 h-6 md:w-14 md:h-14 bg-white"></div>
                     <div class="flex ml-[290px] -translate-y-40 md:ml-[120px] md:mt-2 w-4 h-4 md:w-14 md:h-14 bg-white"></div>
-                    <div class="absolute left-[80px] sm:left-[37%] -translate-x-20 -translate-y-60 md:-translate-x-40 md:-translate-y-80 top-[30px] bg-purple-800/20 rounded-full w-40 h-40  md:w-[300px] md:h-[300px] -z-30 pulse"></div>
+                </div>
+                <div class="absolute left-1/2 -translate-x-[50%] mx-auto bg-transparent -z-50 min-w-80">
+                    <div class="mx-auto bg-purple-800/20 rounded-full w-40 h-40 md:w-[300px] md:h-[300px] -z-50 pulse"></div>
                 </div>
 
                 <!-- Profile Image -->
                 <div class="flex justify-center mb-8 sm:mb-10">
                     <div class="bg-[#f0e9f8] p-3 rounded-lg">
-                        <img src="../assets/images/img_rectangle_2.png" alt="Victor Akande" class="w-20 h-20 sm:w-[104px] sm:h-[104px] rounded-[52px] object-cover" />
+                        <img src="../assets/images/profile.png" alt="Victor Akande" class="w-20 h-20 sm:w-[104px] sm:h-[104px] rounded-[52px] object-cover" />
                     </div>
                 </div>
 
@@ -116,8 +118,8 @@
                     <div class="flex items-center gap-8 sm:gap-10">
                         <img src="../assets/images/img_social_icons.svg" onclick="window.location = 'https://x.com/DavinDicator?t=DuquoHn5wqq12teNv2ctKw&s=09'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
                         <img src="../assets/images/img_vector.svg" onclick="window.location = 'https://wa.me/2349051217349'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
-                        <img src="../assets/images/img_vector_white_a700.svg" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
-                        <img src="../assets/images/img_social_icons_white_a700.svg" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
+                        <img src="../assets/images/img_vector_white_a700.svg" onclick="window.location = 'https://linkedin.com/in/davindicator'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
+                        <img src="../assets/images/img_social_icons_white_a700.svg" onclick="window.location = 'https://github.com/davindicator001'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
                     </div>
                 </div>
 
@@ -136,9 +138,9 @@
     </section>
 
     <!-- Selected Projects Section -->
-    <section class="w-full bg-black py-16 sm:py-20">
+    <section id="projects" class="w-full bg-black py-16 sm:py-20">
         <div class="w-full lg:max-w-[1238px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="space-y-8 sm:space-y-12">
+            <div class="space-y-8 md:space-y-12">
                 <!-- Section Header -->
                 <div class="space-y-2">
                     <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-light text-white">Selected Projects</h2>
@@ -146,11 +148,11 @@
                 </div>
 
                 <!-- Projects Grid -->
-                <div class="space-y-16 sm:space-y-20 lg:space-y-24">
+                <div class="space-y-16 md:space-y-20 lg:space-y-24">
                     <!-- Row 1: Connect Four & DevLinks -->
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+                    <div class="grid grid-cols-1 gap-8 lg:gap-16">
                         <!-- Connect Four Project -->
-                        <div class="bg-[#0e0e0e] rounded-[32px] p-6 sm:p-8 lg:p-10 space-y-6">
+                        <div class="rounded-[32px] lg:max-w-[70%] mr-auto p-6 sm:p-8 lg:p-10 space-y-6">
                             <div class="bg-white rounded-3xl p-1">
                                 <img src="../assets/images/img_connect_four_1.png" alt="Connect Four Game" class="w-full h-auto rounded-3xl" />
                             </div>
@@ -172,7 +174,7 @@
                         </div>
 
                         <!-- DevLinks Project -->
-                        <div class="bg-[#0e0e0e] rounded-[32px] p-6 sm:p-8 space-y-6">
+                        <div class="lg:max-w-[70%] ml-auto rounded-[32px] p-6 sm:p-8 space-y-6">
                             <div class="bg-white rounded-3xl p-1">
                                 <img src="../assets/images/img_devlinks_1.png" alt="DevLinks Platform" class="w-full h-auto rounded-3xl" />
                             </div>
@@ -197,9 +199,9 @@
                     </div>
 
                     <!-- Row 2: Kanban & Jikoo -->
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+                    <div class="grid grid-cols-1 gap-8 lg:gap-16">
                         <!-- Kanban Project -->
-                        <div class="bg-[#0e0e0e] rounded-[32px] p-6 sm:p-8 space-y-6">
+                        <div class="lg:max-w-[70%] mr-auto rounded-[32px] p-6 sm:p-8 space-y-6">
                             <div class="bg-white rounded-3xl p-1">
                                 <img src="../assets/images/img_kanban_1.png" alt="Kanban Board" class="w-full h-auto rounded-3xl" />
                             </div>
@@ -222,7 +224,7 @@
                         </div>
 
                         <!-- Jikoo Project -->
-                        <div class="space-y-6">
+                        <div class="space-y-6 lg:max-w-[70%] rounded-[32px] ml-auto">
                             <div class="bg-white rounded-3xl p-1">
                                 <img src="../assets/images/img_general_landing.png" alt="Jikoo Website" class="w-full h-auto rounded-3xl" />
                             </div>
@@ -248,9 +250,9 @@
                     </div>
 
                     <!-- Row 3: Assure & Hangman -->
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+                    <div class="grid grid-cols-1 gap-8 lg:gap-16">
                         <!-- Assure Project -->
-                        <div class="bg-[#0e0e0e] rounded-[32px] p-6 sm:p-8 space-y-6">
+                        <div class="lg:max-w-[70%] mr-auto rounded-[32px] p-6 sm:p-8 space-y-6">
                             <div class="bg-white rounded-3xl p-1">
                                 <img src="../assets/images/img_main_landing_page.png" alt="Assure Website" class="w-full h-auto rounded-3xl" />
                             </div>
@@ -272,7 +274,7 @@
                         </div>
 
                         <!-- Hangman Project -->
-                        <div class="bg-[#0e0e0e] rounded-[32px] p-6 sm:p-8 space-y-6">
+                        <div class="lg:max-w-[70%] ml-auto rounded-[32px] p-6 sm:p-8 space-y-6">
                             <div class="bg-white rounded-3xl p-1">
                                 <img src="../assets/images/img_hangman_1.png" alt="Hangman Game" class="w-full h-auto rounded-3xl" />
                             </div>
@@ -304,23 +306,24 @@
     </section>
 
     <!-- Personal Story Section -->
-    <section class="w-full bg-black py-16 sm:py-20">
+    <section id="about" class="w-full bg-black py-16 sm:py-20">
         <div class="w-full lg:max-w-[1238px] mx-auto px-4 sm:px-6 lg:px-8">
             <div class="space-y-6">
-                <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-light text-white">Building, Breaking, Fixing — Repeat 😎</h2>
+                <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-light text-white">Creating, Crashing, Solving — On Repeat 😎</h2>
 
                 <div class="flex flex-col lg:flex-row gap-6">
                     <!-- Text Content -->
                     <div class="bg-[#0e0e0e] rounded-[32px] p-6 sm:p-8 flex-1">
-                        <p class="text-lg sm:text-xl lg:text-2xl font-light text-[#ffffff7f] leading-relaxed">
-                            I write code, break things, fix them, and somehow make it all work. I build web apps with Next.js, React, and Node.js, making sure they don't just run but run well. Sometimes, I add animations—because why not?<br /><br />
-                            I've built games, dashboards, and real-time apps, always finding new ways to make things faster, smoother, and less boring. If I'm not coding, I'm probably deep into a console game, trying to beat a final boss or just enjoying the pixels.
+                        <p class="text-md md:text-lg lg:text-xl font-light text-[#ffffff7f] leading-relaxed">
+                            I bring ideas to life with code—sometimes things break, but that’s half the fun. From dynamic websites to fullstack apps and custom game logic, I use tools like Python, React, Next.js, and Node.js to make projects that are fast, functional, and just a bit smarter.<br /><br />
+                            I’ve worked on everything from 3D terrain systems in Godot to sleek dashboards and interactive UI experiences. Math challenges? I welcome them—especially when they push my logic and creativity.<br /><br />
+                            When I’m not coding, I’m usually experimenting with something new, solving problems for fun, or mastering the next game level. Did I mention I call myself DavinDicator?
                         </p>
                     </div>
 
                     <!-- Image Stack -->
                     <div class="relative bg-[#6640ed] rounded-[32px] w-full lg:w-[402px] h-[362px]">
-                        <img src="../assets/images/img_img_5622_1.png" alt="Victor Akande" class="absolute inset-0 w-full h-full object-cover rounded-[32px]" />
+                        <img src="../assets/images/me.jpg" alt="Victor Akande" class="absolute inset-0 w-full h-full object-cover rounded-[32px]" />
                         <img src="../assets/images/img_svg_xml_base64_black_900.png" alt="Overlay" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 h-auto" />
                     </div>
                 </div>
@@ -422,7 +425,7 @@
 
                     <!-- Code Image -->
                     <div class="bg-[#6640ed] rounded-[32px] w-full lg:w-[622px] h-[362px] flex items-center justify-center">
-                        <img src="../assets/images/img_image_1.png" alt="Code Editor" class="w-full h-full object-cover rounded-[32px]" />
+                        <img src="../assets/images/laptop_picture.jpg" alt="Code Editor" class="w-full h-full object-cover rounded-[32px]" />
                     </div>
                 </div>
             </div>
@@ -430,7 +433,7 @@
     </section>
 
     <!-- Contact Section -->
-    <footer class="w-full bg-[linear-gradient(180deg,#000000_0%,#080414_100%)] py-16 sm:py-20">
+    <footer id="contact" class="w-full bg-[linear-gradient(180deg,#000000_0%,#080414_100%)] py-16 sm:py-20">
         <div class="w-full lg:max-w-[1238px] mx-auto px-4 sm:px-6 lg:px-8">
             <div class="space-y-16 sm:space-y-28">
                 <!-- Header -->
@@ -444,12 +447,12 @@
 
                 <!-- Email and Social -->
                 <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
-                    <h3 class="text-2xl md:text-6xl lg:text-[88px] font-light text-[#ffffff4c] leading-tight">victorakande090@gmail.com</h3>
+                    <h3 class="text-2xl md:text-4xl font-light text-[#ffffff4c] leading-tight">victorakande090@gmail.com</h3>
                     <div class="flex items-center gap-8 sm:gap-10">
                         <img src="../assets/images/img_social_icons.svg" onclick="window.location = 'https://x.com/DavinDicator?t=DuquoHn5wqq12teNv2ctKw&s=09'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
                         <img src="../assets/images/img_vector.svg" onclick="window.location = 'https://wa.me/2349051217349'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
-                        <img src="../assets/images/img_vector_white_a700.svg" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
-                        <img src="../assets/images/img_social_icons_white_a700.svg" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
+                        <img src="../assets/images/img_vector_white_a700.svg" onclick="window.location = 'https://linkedin.com/in/davindicator'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
+                        <img src="../assets/images/img_social_icons_white_a700.svg" onclick="window.location = 'https://github.com/davindicator001'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
                     </div>
                 </div>
             </div>
