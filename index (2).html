@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Victor Akande - Portfolio</title>
+    <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fvictorsa6513back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.5"></script>
+
+    <!-- Tailwind CDN -->
+    <!--script src="https://cdn.tailwindcss.com"></script-->
+    <script src="../tailwind.js"></script>
+    <style>
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        @keyframes pulse{
+            0%{
+                transform: scale(1);
+            }
+            50%{
+                transform: scale(1.5);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .pulse{
+            transform: scale(1);
+            animation: pulse 2.0s ease infinite;
+        }
+    </style>
+
+</head>
+
+<body class="fade-in bg-black text-white font-sans">
+    <!-- Navigation Header -->
+    <header class="w-full mx-auto">
+        <div class="w-full max-w-400px md:max-w-[1238px] mx-auto px-2 md:px-6 lg:px-8 pt-12 md:pt-20">
+            <nav class="flex justify-center items-center w-full">
+                <div class="flex items-center sm:gap-3 md:gap-5 bg-black border border-[#ffffff23] rounded-[40px] px-[4px] md:px-6 md:py-5 shadow-[0px_4px_12px_#888888ff]">
+                    <div class="flex items-center gap-2 md:gap-5">
+                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors" onclick="window.location = '#projects'">Project</button>
+                        <div class="w-[1px] h-2 bg-[#d3d4d7]"></div>
+                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors" onclick="window.location = 'https://docs.google.com/document/d/19V0YsAkp2UGPtw4vJnd7gJZeZ_CEPHrx/edit?usp=drivesdk&ouid=110181126624856182170&rtpof=true&sd=true'">Resume</button>
+                        <div class="w-[1px] h-2 bg-[#d3d4d7]"></div>
+                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors" onclick="window.location = '#about'">About</button>
+                        <div class="w-[1px] h-2 bg-[#d3d4d7]"></div>
+                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors" onclick="window.location = '#contact'">Contact</button>
+                        <div class="w-[1px] h-2 bg-[#d3d4d7]"></div>
+                        <button class="bg-[#40c9fd] text-[#e9ecef] my-4 md:my-0 px-2 py-[3px] md:px-4 md:py-3 rounded-2xl text-[7px] md:text-base font-medium hover:bg-[#375ad8] duration-300 transition-colors" onclick="window.location = '#contact'">Let's work 💻</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="w-full bg-transparent relative">
+        <div class="w-full lg:max-w-[1238px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 -z-30">
+            <div class="relative w-full">
+                <!-- Decorative Elements -->
+                <div class="absolute left-0 top-32 sm:top-40">
+                    <!-- 1 ▢ -->
+                    <div class="w-6 h-6 md:w-12 md:h-12 sm:w-[50px] sm:h-[48px] bg-white"></div>
+
+                    <!-- 2 ▢  (on top) -->
+                    <div class="w-6 h-6 md:w-12 md:h-12 -translate-y-2 ml-4 sm:w-[50px] sm:h-[48px] bg-black z-[9]"></div>
+                    <div class="absolute w-6 h-6 md:w-12 md:h-12 bg-white -translate-y-4 ml-8 sm:ml-[48px] -z-10"></div>
+                    <div class="flex absolute ml-[300px] md:ml-[120px] mt-2 -translate-y-40 w-6 h-6 md:w-14 md:h-14 bg-white"></div>
+                    <div class="flex ml-[290px] -translate-y-40 md:ml-[120px] md:mt-2 w-4 h-4 md:w-14 md:h-14 bg-white"></div>
+                </div>
+                <div class="absolute left-1/2 -translate-x-[50%] mx-auto bg-transparent -z-50 min-w-80">
+                    <div class="mx-auto bg-purple-800/20 rounded-full w-40 h-40 md:w-[300px] md:h-[300px] -z-50 pulse"></div>
+                </div>
+
+                <!-- Profile Image -->
+                <div class="flex justify-center mb-8 sm:mb-10">
+                    <div class="bg-[#f0e9f8] p-3 rounded-lg">
+                        <img src="../assets/images/profile.png" alt="Victor Akande" class="w-20 h-20 sm:w-[104px] sm:h-[104px] rounded-[52px] object-cover" />
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="flex flex-col items-center text-center space-y-6 sm:space-y-8 px-4 sm:px-14">
+                    <div class="space-y-5">
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-bold leading-tight">
+                            <span class="text-[#ffffff4c]">Hello there,</span><br />
+                            <span class="text-white">I'm Victor Akande</span>
+                        </h1>
+                        <p class="text-sm sm:text-base text-white leading-relaxed max-w-2xl mx-auto">
+                            I'm a software developer who builds functional and efficient full stack web applications using React, Next.js, and TypeScript, mobile and desktop applications using C#, Avalonia, Flutter and React-Native, Games in unreal engine and Godot focusing on clean code and practical solutions.
+                        </p>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="flex items-center gap-8 sm:gap-10">
+                        <img src="../assets/images/img_social_icons.svg" onclick="window.location = 'https://x.com/DavinDicator?t=DuquoHn5wqq12teNv2ctKw&s=09'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
+                        <img src="../assets/images/img_vector.svg" onclick="window.location = 'https://wa.me/2349051217349'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
+                        <img src="../assets/images/img_vector_white_a700.svg" onclick="window.location = 'https://linkedin.com/in/davindicator'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
+                        <img src="../assets/images/img_social_icons_white_a700.svg" onclick="window.location = 'https://github.com/davindicator001'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
+                    </div>
+                </div>
+
+                <!-- Background Image -->
+                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-[754px] h-[252px] hidden lg:block">
+                    <img src="../assets/images/img_vector_640.png" alt="Background" class="w-full h-full object-cover rounded-[126px]" />
+                </div>
+
+                <!-- Right Decorative Elements -->
+                <div class="absolute right-0 bottom-0 hidden lg:flex items-end gap-4">
+                    <img src="../assets/images/img_svg_xml_base64.svg" alt="Decoration" class="w-7 h-7 mt-8" />
+                    <img src="../assets/images/img_frame_2147224317.png" alt="Decoration" class="w-[122px] h-[172px]" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Projects Section -->
+    <section id="projects" class="w-full bg-black py-16 sm:py-20">
+        <div class="w-full lg:max-w-[1238px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="space-y-8 md:space-y-12">
+                <!-- Section Header -->
+                <div class="space-y-2">
+                    <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-light text-white">Selected Projects</h2>
+                    <p class="text-sm sm:text-base font-light text-[#ffffff7f]">Crafted with attention to detail.</p>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="space-y-16 md:space-y-20 lg:space-y-24">
+                    <!-- Row 1: Connect Four & DevLinks -->
+                    <div class="grid grid-cols-1 gap-8 lg:gap-16">
+                        <!-- Connect Four Project -->
+                        <div class="rounded-[32px] lg:max-w-[70%] mr-auto p-6 sm:p-8 lg:p-10 space-y-6">
+                            <div class="bg-white rounded-3xl p-1">
+                                <img src="../assets/images/img_connect_four_1.png" alt="Connect Four Game" class="w-full h-auto rounded-3xl" />
+                            </div>
+                            <div class="space-y-8 sm:space-y-14">
+                                <div class="space-y-6 sm:space-y-8">
+                                    <div class="space-y-2">
+                                        <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white leading-tight">An Interactive Offline Game with AI & Multiplayer</h3>
+                                        <p class="text-sm sm:text-base font-light text-[#ffffff7f] leading-relaxed">Connect Four is a classic strategy game where you drop discs into a grid to connect four in a row. Play against our competitive AI that challenges your skills and blocks your moves.</p>
+                                    </div>
+                                    <div class="flex items-center gap-4 sm:gap-5">
+                                        <img src="../assets/images/img_file_type_reactjs.png" alt="React" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                        <img src="../assets/images/img_express_js_logo.svg" alt="Express" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                        <img src="../assets/images/img_express_js_logo_blue_gray_600.svg" alt="Tech" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                        <img src="../assets/images/img_express_js_logo_32x32.png" alt="Tech" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    </div>
+                                </div>
+                                <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors">Live Preview</button>
+                            </div>
+                        </div>
+
+                        <!-- DevLinks Project -->
+                        <div class="lg:max-w-[70%] ml-auto rounded-[32px] p-6 sm:p-8 space-y-6">
+                            <div class="bg-white rounded-3xl p-1">
+                                <img src="../assets/images/img_devlinks_1.png" alt="DevLinks Platform" class="w-full h-auto rounded-3xl" />
+                            </div>
+                            <div class="space-y-8 sm:space-y-14">
+                                <div class="space-y-6 sm:space-y-8">
+                                    <div class="space-y-2">
+                                        <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white leading-tight">A Developer Link Management Platform</h3>
+                                        <p class="text-sm sm:text-base font-light text-[#ffffff7f] leading-relaxed">DevLinks is a web app for managing and sharing links easily. It offers link CRUD, drag-and-drop, real-time previews, and profile setup with pictures.</p>
+                                    </div>
+                                    <div class="flex items-center gap-4 sm:gap-5">
+                                        <img src="../assets/images/img_file_type_reactjs.png" alt="React" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                        <img src="../assets/images/img_svg_xml_base64_light_blue_700.png" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                        <img src="../assets/images/img_express_js_logo_white_a700.svg" alt="Express" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                        <img src="../assets/images/img_express_js_logo_white_a700_32x32.svg" alt="Tech" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                        <img src="../assets/images/img_express_js_logo_green_500.svg" alt="MongoDB" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                        <img src="../assets/images/img_express_js_logo_32x32.png" alt="Tailwind" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    </div>
+                                </div>
+                                <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors">Live Preview</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Kanban & Jikoo -->
+                    <div class="grid grid-cols-1 gap-8 lg:gap-16">
+                        <!-- Kanban Project -->
+                        <div class="lg:max-w-[70%] mr-auto rounded-[32px] p-6 sm:p-8 space-y-6">
+                            <div class="bg-white rounded-3xl p-1">
+                                <img src="../assets/images/img_kanban_1.png" alt="Kanban Board" class="w-full h-auto rounded-3xl" />
+                            </div>
+                            <div class="space-y-8 sm:space-y-14">
+                                <div class="space-y-6 sm:space-y-8">
+                                    <div class="space-y-2">
+                                        <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white leading-tight">An Interactive Kanban Board for Task Management</h3>
+                                        <p class="text-sm sm:text-base font-light text-[#ffffff7f] leading-relaxed">The Kanban app is a full-stack project management tool for creating, updating, and managing boards and tasks. It includes task tracking, column moves, sidebar toggle, and theme switching.</p>
+                                    </div>
+                                    <div class="flex items-center gap-4 sm:gap-5">
+                                        <img src="../assets/images/img_file_type_reactjs.png" alt="React" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                        <img src="../assets/images/img_svg_xml_base64_light_blue_700.png" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                        <img src="../assets/images/img_express_js_logo_white_a700.svg" alt="Express" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                        <img src="../assets/images/img_express_js_logo_blue_gray_600.svg" alt="Tech" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                        <img src="../assets/images/img_express_js_logo_32x32.png" alt="Tailwind" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    </div>
+                                </div>
+                                <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors">Live Preview</button>
+                            </div>
+                        </div>
+
+                        <!-- Jikoo Project -->
+                        <div class="space-y-6 lg:max-w-[70%] rounded-[32px] ml-auto">
+                            <div class="bg-white rounded-3xl p-1">
+                                <img src="../assets/images/img_general_landing.png" alt="Jikoo Website" class="w-full h-auto rounded-3xl" />
+                            </div>
+                            <div class="space-y-6 sm:space-y-8">
+                                <div class="space-y-2">
+                                    <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white">Jikoo Website</h3>
+                                    <p class="text-sm sm:text-base font-light text-[#ffffff7f] leading-relaxed">ikoo connects you to the finest restaurants, delivering delicious meals to your doorstep with ease.</p>
+                                </div>
+                                <div class="flex items-center gap-4 sm:gap-5">
+                                    <div class="relative w-7 h-6">
+                                        <div class="absolute top-2 left-3 w-1 h-1 bg-[#00d8ff] rounded-full"></div>
+                                        <img src="../assets/images/img_vector_cyan_a400.svg" alt="React" class="absolute top-0 left-0 w-auto h-3" />
+                                        <img src="../assets/images/img_vector_cyan_a400_24x16.svg" alt="React" class="absolute top-0 left-1 w-auto h-6" />
+                                        <img src="../assets/images/img_vector_24x16.svg" alt="React" class="absolute top-0 left-1 w-auto h-6" />
+                                    </div>
+                                    <img src="../assets/images/img_svg_xml_base64_light_blue_700.png" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <img src="../assets/images/img_gsap_logo.svg" alt="GSAP" class="w-auto h-6 sm:h-8" />
+                                    <img src="../assets/images/img_express_js_logo_32x32.png" alt="Tailwind" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                </div>
+                            </div>
+                            <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors">Live Preview</button>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Assure & Hangman -->
+                    <div class="grid grid-cols-1 gap-8 lg:gap-16">
+                        <!-- Assure Project -->
+                        <div class="lg:max-w-[70%] mr-auto rounded-[32px] p-6 sm:p-8 space-y-6">
+                            <div class="bg-white rounded-3xl p-1">
+                                <img src="../assets/images/img_main_landing_page.png" alt="Assure Website" class="w-full h-auto rounded-3xl" />
+                            </div>
+                            <div class="space-y-8 sm:space-y-14">
+                                <div class="space-y-6 sm:space-y-13">
+                                    <div class="space-y-2">
+                                        <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white">Assure Website</h3>
+                                        <p class="text-sm sm:text-base font-light text-[#ffffff7f]">Assure is a virtual care delivery to empower both patients and clinicians.</p>
+                                    </div>
+                                    <div class="flex items-center gap-4 sm:gap-5">
+                                        <img src="../assets/images/img_file_type_reactjs.png" alt="React" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                        <img src="../assets/images/img_svg_xml_base64_light_blue_700.png" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                        <img src="../assets/images/img_express_js_logo_white_a700.svg" alt="Express" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                        <img src="../assets/images/img_express_js_logo_32x32.png" alt="Tailwind" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    </div>
+                                </div>
+                                <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors">Live Preview</button>
+                            </div>
+                        </div>
+
+                        <!-- Hangman Project -->
+                        <div class="lg:max-w-[70%] ml-auto rounded-[32px] p-6 sm:p-8 space-y-6">
+                            <div class="bg-white rounded-3xl p-1">
+                                <img src="../assets/images/img_hangman_1.png" alt="Hangman Game" class="w-full h-auto rounded-3xl" />
+                            </div>
+                            <div class="space-y-8 sm:space-y-14">
+                                <div class="space-y-6 sm:space-y-8">
+                                    <div class="space-y-2">
+                                        <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white leading-tight">An Interactive and Engaging Hangman Challenge</h3>
+                                        <p class="text-sm sm:text-base font-light text-[#ffffff7f] leading-relaxed">The Hangman Game lets you test your knowledge across six categories—movies, TV shows, animals, capitals, countries, and sports. With 8 guesses, challenge your word skills and uncover hidden phrases before the hangman is complete!</p>
+                                    </div>
+                                    <div class="flex items-center gap-4 sm:gap-5">
+                                        <div class="relative w-7 h-6">
+                                            <div class="absolute top-2 left-3 w-1 h-1 bg-[#00d8ff] rounded-full"></div>
+                                            <img src="../assets/images/img_vector_cyan_a400.svg" alt="React" class="absolute top-0 left-0 w-auto h-3" />
+                                            <img src="../assets/images/img_vector_cyan_a400_24x16.svg" alt="React" class="absolute top-0 left-1 w-auto h-6" />
+                                            <img src="../assets/images/img_vector_24x16.svg" alt="React" class="absolute top-0 left-1 w-auto h-6" />
+                                        </div>
+                                        <img src="../assets/images/img_svg_xml_base64_light_blue_700.png" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                        <img src="../assets/images/img_express_js_logo_blue_gray_600.svg" alt="Tech" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                        <img src="../assets/images/img_vector_18x30.png" alt="Tech" class="w-auto h-6 sm:h-8" />
+                                    </div>
+                                </div>
+                                <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors">Live Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Story Section -->
+    <section id="about" class="w-full bg-black py-16 sm:py-20">
+        <div class="w-full lg:max-w-[1238px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="space-y-6">
+                <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-light text-white">Creating, Crashing, Solving — On Repeat 😎</h2>
+
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- Text Content -->
+                    <div class="bg-[#0e0e0e] rounded-[32px] p-6 sm:p-8 flex-1">
+                        <p class="text-md md:text-lg lg:text-xl font-light text-[#ffffff7f] leading-relaxed">
+                            I bring ideas to life with code—sometimes things break, but that’s half the fun. From dynamic websites to fullstack apps and custom game logic, I use tools like Python, React, Next.js, and Node.js to make projects that are fast, functional, and just a bit smarter.<br /><br />
+                            I’ve worked on everything from 3D terrain systems in Godot to sleek dashboards and interactive UI experiences. Math challenges? I welcome them—especially when they push my logic and creativity.<br /><br />
+                            When I’m not coding, I’m usually experimenting with something new, solving problems for fun, or mastering the next game level. Did I mention I call myself DavinDicator?
+                        </p>
+                    </div>
+
+                    <!-- Image Stack -->
+                    <div class="relative bg-[#6640ed] rounded-[32px] w-full lg:w-[402px] h-[362px]">
+                        <img src="../assets/images/me.jpg" alt="Victor Akande" class="absolute inset-0 w-full h-full object-cover rounded-[32px]" />
+                        <img src="../assets/images/img_svg_xml_base64_black_900.png" alt="Overlay" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 h-auto" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="w-full bg-black py-16 sm:py-20">
+        <div class="w-full lg:max-w-[1238px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="space-y-6">
+                <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-light text-white">My Tech Stack</h2>
+
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- Tech Grid -->
+                    <div class="bg-[#0e0e0e] rounded-[32px] p-6 sm:p-8 flex-1">
+                        <div class="space-y-6 sm:space-y-8">
+                            <!-- Row 1 -->
+                            <div class="flex flex-wrap gap-4 sm:gap-6 lg:gap-8">
+                                <div class="flex items-center gap-2">
+                                    <img src="../assets/images/img_express_js_logo_cyan_a400.svg" alt="React" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <span class="text-xs sm:text-sm text-white">React</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <img src="../assets/images/img_express_js_logo_deep_orange_a200.svg" alt="React Query" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <span class="text-xs sm:text-sm text-white">React Query</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <img src="../assets/images/img_express_js_logo_light_green_500_01.svg" alt="NodeJs" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <span class="text-xs sm:text-sm text-white">NodeJs</span>
+                                </div>
+                            </div>
+
+                            <!-- Row 2 -->
+                            <div class="flex flex-wrap gap-4 sm:gap-6 lg:gap-8">
+                                <div class="flex items-center gap-2">
+                                    <img src="../assets/images/img_express_js_logo_light_blue_700.svg" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <span class="text-xs sm:text-sm text-white">TypeScript</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <img src="../assets/images/img_express_js_logo_pink_300.svg" alt="SASS" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <span class="text-xs sm:text-sm text-white">SASS</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <img src="../assets/images/img_express_js_logo_blue_gray_600.svg" alt="Framer Motion" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <span class="text-xs sm:text-sm text-white">Framer Motion</span>
+                                </div>
+                            </div>
+
+                            <!-- Row 3 -->
+                            <div class="flex flex-wrap gap-4 sm:gap-6 lg:gap-8">
+                                <div class="flex items-center gap-2">
+                                    <img src="../assets/images/img_express_js_logo_white_a700_32x32.svg" alt="ExpressJs" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <span class="text-xs sm:text-sm text-white">ExpressJs</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <img src="../assets/images/img_express_js_logo_amber_400.svg" alt="JavaScript" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <span class="text-xs sm:text-sm text-white">JavaScript</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <img src="../assets/images/img_express_js_logo.svg" alt="Redux" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <span class="text-xs sm:text-sm text-white">Redux</span>
+                                </div>
+                            </div>
+
+                            <!-- Row 4 -->
+                            <div class="flex flex-wrap gap-4 sm:gap-6 lg:gap-8">
+                                <div class="flex items-center gap-2">
+                                    <img src="../assets/images/img_express_js_logo_green_500.svg" alt="MongoDB" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <span class="text-xs sm:text-sm text-white">MongoDB</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <img src="../assets/images/img_express_js_logo_red_600.svg" alt="Git" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <span class="text-xs sm:text-sm text-white">Git</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <img src="../assets/images/img_express_js_logo_purple_300.svg" alt="Styled Components" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <span class="text-xs sm:text-sm text-white">Styled Components</span>
+                                </div>
+                            </div>
+
+                            <!-- Row 5 -->
+                            <div class="flex flex-wrap gap-4 sm:gap-6 lg:gap-8">
+                                <div class="flex items-center gap-2">
+                                    <img src="../assets/images/img_express_js_logo_32x32.png" alt="TailwindCss" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <span class="text-xs sm:text-sm text-white">TailwindCss</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <img src="../assets/images/img_express_js_logo_white_a700.svg" alt="Next.js" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <span class="text-xs sm:text-sm text-white">Next.js</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <img src="../assets/images/img_express_js_logo_green_700.svg" alt="Supabase" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <span class="text-xs sm:text-sm text-white">Supabase</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Code Image -->
+                    <div class="bg-[#6640ed] rounded-[32px] w-full lg:w-[622px] h-[362px] flex items-center justify-center">
+                        <img src="../assets/images/laptop_picture.jpg" alt="Code Editor" class="w-full h-full object-cover rounded-[32px]" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <footer id="contact" class="w-full bg-[linear-gradient(180deg,#000000_0%,#080414_100%)] py-16 sm:py-20">
+        <div class="w-full lg:max-w-[1238px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="space-y-16 sm:space-y-28">
+                <!-- Header -->
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+                    <div class="space-y-4">
+                        <h2 class="text-4xl sm:text-5xl lg:text-[64px] font-light text-white leading-tight">Say hello</h2>
+                        <p class="text-2xl sm:text-3xl lg:text-[36px] font-normal text-[#ffffff4c] leading-tight">Have a project in mind? Let's work together.</p>
+                    </div>
+                    <img src="../assets/images/img_vector_white_a700_68x68.svg" alt="Arrow" class="w-12 h-12 sm:w-16 sm:h-16 lg:w-[68px] lg:h-[68px]" />
+                </div>
+
+                <!-- Email and Social -->
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
+                    <h3 class="text-2xl md:text-4xl font-light text-[#ffffff4c] leading-tight">victorakande090@gmail.com</h3>
+                    <div class="flex items-center gap-8 sm:gap-10">
+                        <img src="../assets/images/img_social_icons.svg" onclick="window.location = 'https://x.com/DavinDicator?t=DuquoHn5wqq12teNv2ctKw&s=09'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
+                        <img src="../assets/images/img_vector.svg" onclick="window.location = 'https://wa.me/2349051217349'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
+                        <img src="../assets/images/img_vector_white_a700.svg" onclick="window.location = 'https://linkedin.com/in/davindicator'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
+                        <img src="../assets/images/img_social_icons_white_a700.svg" onclick="window.location = 'https://github.com/davindicator001'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+
+</html>
