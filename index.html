@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Victor Akande - Portfolio</title>
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="stylesheet" href="./assets/css/animations.css" />
+    <link rel="stylesheet" href="./assets/css/mobile-panel.css" />
     <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fvictorsa6513back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.5"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <!-- Tailwind CDN -->
     <!--script src="https://cdn.tailwindcss.com"></script-->
     <script src="./libraries/tailwind.js"></script>
-    
+
     <style>
         body::before {
             content: '';
@@ -23,121 +25,249 @@
             z-index: -1;
         }
 
-        @keyframes pulse{
-            0%{
-                transform: scale(1);
-            }
-            50%{
-                transform: scale(1.5);
-            }
-            100%{
-                transform: scale(1);
-            }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        .fade-in {
-            opacity: 1;
-            transform: translateY(0);
-            animation: fadeIn 0.8s ease-out forwards;
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
         }
-        .pulse{
-            transform: scale(1);
-            animation: pulse 2.0s ease infinite;
+
+        ::-webkit-scrollbar-thumb {
+            background: #40c9fd;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #375ad8;
         }
     </style>
 
 </head>
 
-<body class="bg-black text-white font-sans" data-aos="fade-up">
+<body class="bg-black text-white font-sans">
     <!-- Navigation Header -->
-    <header class="w-full mx-auto">
+    <header class="w-full mx-auto fade-in-down">
         <div class="w-full max-w-400px md:max-w-[1238px] mx-auto px-2 md:px-6 lg:px-8 pt-12 md:pt-20">
             <nav class="flex justify-center items-center w-full">
                 <div class="flex items-center sm:gap-3 md:gap-5 bg-black border border-[#ffffff23] rounded-[40px] px-[4px] md:px-6 md:py-5 shadow-[0px_4px_12px_#888888ff]">
                     <div class="flex items-center gap-2 md:gap-5">
-                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors" onclick="window.location = '#projects'">Project</button>
+                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors btn-hover nav-item" onclick="window.location = '#projects'">Projects</button>
                         <div class="w-[1px] h-2 bg-[#d3d4d7]"></div>
-                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors" onclick="window.location = 'https://docs.google.com/document/d/19V0YsAkp2UGPtw4vJnd7gJZeZ_CEPHrx/edit?usp=drivesdk&ouid=110181126624856182170&rtpof=true&sd=true'">Resume</button>
+                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors btn-hover nav-item" onclick="window.location = 'https://docs.google.com/document/d/19V0YsAkp2UGPtw4vJnd7gJZeZ_CEPHrx/edit?usp=drivesdk&ouid=110181126624856182170&rtpof=true&sd=true'">Resume</button>
                         <div class="w-[1px] h-2 bg-[#d3d4d7]"></div>
-                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors" onclick="window.location = '#about'">About</button>
+                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors btn-hover nav-item" onclick="window.location = '#about'">About</button>
                         <div class="w-[1px] h-2 bg-[#d3d4d7]"></div>
-                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors" onclick="window.location = '#contact'">Contact</button>
+                        <button class="px-[4px] py-[4px] text-sm md:text-base text-white hover:text-gray-300 duration-300 transition-colors btn-hover nav-item" onclick="window.location = '#contact'">Contact</button>
                         <div class="w-[1px] h-2 bg-[#d3d4d7]"></div>
-                        <button class="bg-[#40c9fd] text-[#e9ecef] my-4 md:my-0 px-2 py-[3px] md:px-4 md:py-3 rounded-2xl text-[7px] md:text-base font-medium hover:bg-[#375ad8] duration-300 transition-colors" onclick="window.location = '#contact'">Let's work 💻</button>
+                        <button class="bg-[#40c9fd] text-[#e9ecef] my-4 md:my-0 px-2 py-[3px] md:px-4 md:py-3 rounded-2xl text-[7px] md:text-base font-medium hover:bg-[#375ad8] duration-300 transition-colors btn-hover nav-item" onclick="window.location = '#contact'">Let's work 💻</button>
                     </div>
                 </div>
             </nav>
         </div>
     </header>
 
+    <!-- Mobile Panel Toggle Button -->
+    <button class="panel-toggle md:hidden fixed top-6 right-6 z-50 bg-[#40c9fd] text-white p-2 rounded-full shadow-lg hover:bg-[#375ad8] transition-colors pulse" id="panelToggle">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    <!-- Mobile Panel -->
+    <div class="mobile-panel" id="mobilePanel">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-xl font-bold text-white fade-in">Menu</h2>
+                <button class="panel-close" id="panelClose">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="flex flex-col space-y-4">
+                <button class="px-4 py-3 text-white bg-[#40c9fd] rounded-lg w-full hover:bg-[#375ad8] transition-colors btn-hover nav-button" onclick="window.location = '#projects'; closePanel()">
+                    <span class="flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                        </svg>
+                        Projects
+                    </span>
+                </button>
+
+                <button class="px-4 py-3 text-white bg-[#40c9fd] rounded-lg w-full hover:bg-[#375ad8] transition-colors btn-hover nav-button" onclick="window.location = 'https://docs.google.com/document/d/19V0YsAkp2UGPtw4vJnd7gJZeZ_CEPHrx/edit?usp=drivesdk&ouid=110181126624856182170&rtpof=true&sd=true'; closePanel()">
+                    <span class="flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0 1 1 0 002 0zm-1 2a1 1 0 11-2 0 1 1 0 012 0zm-1 2a1 1 0 10-2 0 1 1 0 002 0zm-1 2a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd" />
+                        </svg>
+                        Resume
+                    </span>
+                </button>
+
+                <button class="px-4 py-3 text-white bg-[#40c9fd] rounded-lg w-full hover:bg-[#375ad8] transition-colors btn-hover nav-button" onclick="window.location = '#about'; closePanel()">
+                    <span class="flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                        </svg>
+                        About
+                    </span>
+                </button>
+
+                <button class="px-4 py-3 text-white bg-[#40c9fd] rounded-lg w-full hover:bg-[#375ad8] transition-colors btn-hover nav-button" onclick="window.location = '#contact'; closePanel()">
+                    <span class="flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                        </svg>
+                        Contact
+                    </span>
+                </button>
+
+                <button class="px-4 py-3 text-white bg-[#40c9fd] rounded-lg w-full hover:bg-[#375ad8] transition-colors btn-hover nav-button" onclick="window.location = '#contact'; closePanel()">
+                    <span class="flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011.99-1 1 1 0 112 0 1 1 0 01-1.99 1z" clip-rule="evenodd" />
+                        </svg>
+                        Let's work 💻
+                    </span>
+                </button>
+            </div>
+
+            <div class="mt-auto pt-6 border-t border-gray-700">
+                <div class="flex justify-center space-x-6">
+                    <a href="https://x.com/DavinDicator?t=DuquoHn5wqq12teNv2ctKw&s=09" target="_blank" class="text-white hover:text-[#40c9fd] transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 social-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                        </svg>
+                    </a>
+                    <a href="https://wa.me/2349051217349" target="_blank" class="text-white hover:text-[#40c9fd] transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 social-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19.23 15.2l-2.15-2.11a3.4 3.4 0 00-5.11-1.73l-1.71.93a3.5 3.5 0 00-1.82 3.12v4.24a1.75 1.75 0 001.75 1.75h4.24a1.75 1.75 0 001.75-1.75V19a3.5 3.5 0 00-.88-2.14zM13.5 7.25a6.5 6.5 0 11-6.44 7.1 5.5 5.5 0 015.56-5.06 1 1 0 00-1.4-.14A3.98 3.98 0 018.07 7.5a4 4 0 013.43-.25z" />
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/davindicator" target="_blank" class="text-white hover:text-[#40c9fd] transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 social-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.769c0-3.017-2.462-5.468-5.499-5.468-3.037 0-5.498 2.451-5.498 5.468v5.769h-3v-11h3v1.561h.071c.466-.65 1.425-1.759 3.395-1.759 3.6 0 4.264 2.506 4.264 5.467v6.292h3z" />
+                        </svg>
+                    </a>
+                    <a href="https://github.com/davindicator001" target="_blank" class="text-white hover:text-[#40c9fd] transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 social-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.485-3.376.72-4.442-1.618-4.442-1.618C4.422 18.07 3.633 17.789 3.633 17.789c-.734-1.364.523-1.654 0-1.654-1.855-.754-5.567 1.726-4.394-3.278 0 0 .69-1.556 2.179-4.545C3.963 7.501 8.413 4.006 12 4.006c3.584 0 8.034 3.495 9.809 8.373-.777 1.079-.777 2.525 0 3.404A9.735 9.735 0 0112 21.794z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
-    <section class="w-full bg-transparent relative">
+    <section class="w-full bg-transparent relative hero-section" data-aos="fade-in" data-aos-duration="1000">
         <div class="w-full lg:max-w-[1238px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 -z-30">
             <div class="relative w-full">
                 <!-- Decorative Elements -->
                 <div class="absolute left-0 top-32 sm:top-40">
                     <!-- 1 ▢ -->
-                    <div class="w-6 h-6 md:w-12 md:h-12 sm:w-[50px] sm:h-[48px] bg-white"></div>
+                    <div class="w-6 h-6 md:w-12 md:h-12 sm:w-[50px] sm:h-[48px] bg-white decorative-element" data-aos="fade-in" data-aos-delay="100"></div>
 
                     <!-- 2 ▢  (on top) -->
-                    <div class="w-6 h-6 md:w-12 md:h-12 -translate-y-2 ml-4 sm:w-[50px] sm:h-[48px] bg-black z-[9]"></div>
-                    <div class="absolute w-6 h-6 md:w-12 md:h-12 bg-white -translate-y-4 ml-8 sm:ml-[48px] -z-10"></div>
-                    <div class="flex absolute ml-[300px] md:ml-[120px] mt-2 -translate-y-40 w-6 h-6 md:w-14 md:h-14 bg-white"></div>
-                    <div class="flex ml-[290px] -translate-y-40 md:ml-[120px] md:mt-2 w-4 h-4 md:w-14 md:h-14 bg-white"></div>
+                    <div class="w-6 h-6 md:w-12 md:h-12 -translate-y-2 ml-4 sm:w-[50px] sm:h-[48px] bg-black z-[9] decorative-element" data-aos="fade-in" data-aos-delay="200"></div>
+                    <div class="absolute w-6 h-6 md:w-12 md:h-12 bg-white -translate-y-4 ml-8 sm:ml-[48px] -z-10 decorative-element" data-aos="fade-in" data-aos-delay="300"></div>
+                    <div class="flex absolute ml-[300px] md:ml-[120px] mt-2 -translate-y-40 w-6 h-6 md:w-14 md:h-14 bg-white decorative-element" data-aos="fade-in" data-aos-delay="400"></div>
+                    <div class="flex ml-[290px] -translate-y-40 md:ml-[120px] md:mt-2 w-4 h-4 md:w-14 md:h-14 bg-white decorative-element" data-aos="fade-in" data-aos-delay="500"></div>
+                </div>
+
+                <!-- Floating decorative elements -->
+                <div class="absolute top-1/4 right-10 hidden md:block">
+                    <div class="w-4 h-4 bg-[#40c9fd] rounded-full opacity-70 decorative-element" data-aos="fade-in" data-aos-delay="600"></div>
+                    <div class="w-3 h-3 bg-[#92fe9d] rounded-full opacity-70 mt-4 decorative-element" data-aos="fade-in" data-aos-delay="700"></div>
+                    <div class="w-5 h-5 bg-[#40c9fd] rounded-full opacity-70 mt-8 decorative-element" data-aos="fade-in" data-aos-delay="800"></div>
+                </div>
+
+                <div class="absolute bottom-1/4 left-10 hidden md:block">
+                    <div class="w-3 h-3 bg-[#92fe9d] rounded-full opacity-70 decorative-element" data-aos="fade-in" data-aos-delay="900"></div>
+                    <div class="w-4 h-4 bg-[#40c9fd] rounded-full opacity-70 mt-4 decorative-element" data-aos="fade-in" data-aos-delay="1000"></div>
+                    <div class="w-5 h-5 bg-[#92fe9d] rounded-full opacity-70 mt-8 decorative-element" data-aos="fade-in" data-aos-delay="1100"></div>
                 </div>
                 <div class="absolute left-1/2 -translate-x-[50%] mx-auto bg-transparent -z-50 min-w-80">
                     <div class="mx-auto bg-purple-800/20 rounded-full w-40 h-40 md:w-[300px] md:h-[300px] -z-50 pulse"></div>
                 </div>
 
-                <!-- Profile Image -->
-                <div class="flex justify-center mb-8 sm:mb-10 " data-aos="fade-up" >
-                    <div class="bg-[#f0e9f8] p-3 rounded-lg">
-                        <img src="./assets/images/profile.png" alt="Victor Akande" class="w-20 h-20 sm:w-[104px] sm:h-[104px] rounded-[52px] object-cover" />
+                <!-- Profile Image with blue light background -->
+                <div class="flex justify-center mb-8 sm:mb-10 profile-container" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                    <div class="relative">
+                        <div class="profile-light absolute"></div>
+                        <div class="bg-[#f0e9f8] p-3 rounded-lg shadow-lg glow relative z-10 popUp">
+                            <img src="./assets/images/profile.png" alt="Victor Akande" class="w-20 h-20 sm:w-[104px] sm:h-[104px] rounded-[52px] object-cover zoom-in" />
+                        </div>
                     </div>
                 </div>
 
                 <!-- Main Content -->
                 <div class="flex flex-col items-center text-center space-y-6 sm:space-y-8 px-4 sm:px-14">
                     <div class="space-y-5">
-                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-bold leading-tight">
-                            <span class="text-[#ffffff4c]" data-aos="fade-up" >Hello there,</span><br />
-                            <span class="text-white" data-aos="fade-up">I'm Victor Akande</span>
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-bold leading-tight text-gradient" data-aos="fade-in" data-aos-delay="200" data-aos-duration="1000">
+                            <span class="text-[#ffffff4c]">Hello there,</span><br />
+                            <div class="text-switch-container">
+                                <span class="text-switch text-white">I'm Victor Akande</span>
+                                <span class="text-switch text-white">Full Stack Developer</span>
+                            </div>
+                            <style>
+                                .text-switch-container {
+                                    position: relative;
+                                    display: inline-block;
+                                    height: 1.2em;
+                                    overflow: hidden;
+                                }
+                                .text-switch {
+                                    position: absolute;
+                                    width: 100%;
+                                    animation: textSwitch 6s ease-in-out infinite;
+                                }
+                                .text-switch:nth-child(2) {
+                                    animation-delay: 3s;
+                                }
+                            </style>
                         </h1>
-                        <p class="text-sm sm:text-base text-white leading-relaxed max-w-2xl mx-auto" data-aos="fade-up">
-                            I'm a software developer who builds functional and efficient full stack web applications using React, Next.js, and TypeScript, mobile and desktop applications using C#, Avalonia, Flutter and React-Native, Games in unreal engine and Godot focusing on clean code and practical solutions.
+                        <p class="text-sm sm:text-base text-white leading-relaxed max-w-2xl mx-auto" data-aos="fade-in" data-aos-delay="400" data-aos-duration="800">
+                            I'm a software developer who builds functional and efficient full stack web applications using React, Next.js, and TypeScript,
+                            mobile and desktop applications using C#, Avalonia, Flutter and React-Native, Games in Unreal Engine and Godot.
+                            I also specialize in data analysis and visualization, creating insightful dashboards and reports.
+                            My focus is on clean code, practical solutions, and delivering high-quality results.
                         </p>
                     </div>
 
                     <!-- Social Links -->
-                    <div class="flex items-center gap-8 md:gap-10">
-                        <img class="z-20" data-aos="fade-up" src="./assets/images/img_social_icons.svg" onclick="window.location = 'https://x.com/DavinDicator?t=DuquoHn5wqq12teNv2ctKw&s=09'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
-                        <img class="z-20" data-aos="fade-up" src="./assets/images/img_vector.svg" onclick="window.location = 'https://wa.me/2349051217349'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
-                        <img class="z-20" data-aos="fade-up" src="./assets/images/img_vector_white_a700.svg" onclick="window.location = 'https://linkedin.com/in/davindicator'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
-                        <img  class="z-20" data-aos="fade-up" src="./assets/images/img_social_icons_white_a700.svg" onclick="window.location = 'https://github.com/davindicator001'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
+                    <div class="flex items-center gap-8 md:gap-10" data-aos="fade-in" data-aos-delay="500" data-aos-duration="800">
+                        <img class="z-20 social-icon popIn" src="./assets/images/img_social_icons.svg" onclick="window.location = 'https://x.com/DavinDicator?t=DuquoHn5wqq12teNv2ctKw&s=09'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
+                        <img class="z-20 social-icon popIn" src="./assets/images/img_vector.svg" onclick="window.location = 'https://wa.me/2349051217349'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
+                        <img class="z-20 social-icon popIn" src="./assets/images/img_vector_white_a700.svg" onclick="window.location = 'https://linkedin.com/in/davindicator'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
+                        <img class="z-20 social-icon popIn" src="./assets/images/img_social_icons_white_a700.svg" onclick="window.location = 'https://github.com/davindicator001'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
                     </div>
                 </div>
 
                 <!-- Background Image -->
-                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-[754px] h-[252px] hidden lg:block">
-                    <img src="./assets/images/img_vector_640.png" alt="Background" class="w-full h-full object-cover rounded-[126px]" />
+                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-[754px] h-[252px] hidden lg:block" data-aos="fade-in" data-aos-delay="600" data-aos-duration="1000">
+                    <img src="./assets/images/img_vector_640.png" alt="Background" class="w-full h-full object-cover rounded-[126px] float" />
                 </div>
 
                 <!-- Right Decorative Elements -->
-                <div class="absolute right-0 bottom-0 hidden lg:flex items-end gap-4">
-                    <img src="./assets/images/img_svg_xml_base64.svg" alt="Decoration" class="w-7 h-7 mt-8" />
-                    <img src="./assets/images/img_frame_2147224317.png" alt="Decoration" class="w-[122px] h-[172px]" />
+                <div class="absolute right-0 bottom-0 hidden lg:flex items-end gap-4" data-aos="fade-in" data-aos-delay="700" data-aos-duration="1000">
+                    <img src="./assets/images/img_svg_xml_base64.svg" alt="Decoration" class="w-7 h-7 mt-8 decorative-element" />
+                    <img src="./assets/images/img_frame_2147224317.png" alt="Decoration" class="w-[122px] h-[172px] decorative-element" />
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Selected Projects Section -->
-    <section id="projects" class="w-full bg-black py-16 sm:py-20">
+    <section id="projects" class="w-full bg-black py-16 sm:py-20" data-aos="fade-in" data-aos-duration="800">
         <div class="w-full lg:max-w-[1238px] mx-auto px-4 sm:px-6 lg:px-8">
             <div class="space-y-8 md:space-y-12">
                 <!-- Section Header -->
-                <div class="space-y-2" data-aos="fade-up">
-                    <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-light text-white">Selected Projects</h2>
-                    <p class="text-sm sm:text-base font-light text-[#ffffff7f]">Crafted with attention to detail.</p>
+                <div class="space-y-2" data-aos="fade-in" data-aos-delay="100" data-aos-duration="600">
+                    <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-light text-white text-gradient flicker">Selected Projects</h2>
+                    <p class="text-sm sm:text-base font-light text-[#ffffff7f]" data-aos="fade-in" data-aos-delay="200" data-aos-duration="600">Crafted with attention to detail.</p>
                 </div>
 
                 <!-- Projects Grid -->
@@ -145,48 +275,48 @@
                     <!-- Row 1: Connect Four & DevLinks -->
                     <div class="grid grid-cols-1 gap-8 lg:gap-16">
                         <!-- Connect Four Project -->
-                        <div class="rounded-[32px] lg:max-w-[70%] mr-auto p-6 sm:p-8 lg:p-10 space-y-6 fade-left" data-aos="fade-left">
+    <div class="lg:max-w-[70%] mr-auto rounded-[32px] p-6 sm:p-8 space-y-6 project-card" data-aos="fade-in" data-aos-delay="300" data-aos-duration="800">
                             <div class="bg-white rounded-3xl p-1">
                                 <img src="./assets/images/img_connect_four_1.png" alt="Connect Four Game" class="w-full h-auto rounded-3xl" />
                             </div>
                             <div class="space-y-8 sm:space-y-14">
                                 <div class="space-y-6 sm:space-y-8">
                                     <div class="space-y-2">
-                                        <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white leading-tight">An Interactive Offline Game with AI & Multiplayer</h3>
-                                        <p class="text-sm sm:text-base font-light text-[#ffffff7f] leading-relaxed">Connect Four is a classic strategy game where you drop discs into a grid to connect four in a row. Play against our competitive AI that challenges your skills and blocks your moves.</p>
+                                        <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white leading-tight" data-aos="fade-in" data-aos-delay="200" data-aos-duration="600">An Interactive Offline Game with AI & Multiplayer</h3>
+                                        <p class="text-sm sm:text-base font-light text-[#ffffff7f] leading-relaxed" data-aos="fade-in" data-aos-delay="300" data-aos-duration="600">Connect Four is a classic strategy game where you drop discs into a grid to connect four in a row. Play against our competitive AI that challenges your skills and blocks your moves.</p>
                                     </div>
-                                    <div class="flex items-center gap-4 sm:gap-5">
-                                        <img src="./assets/images/img_file_type_reactjs.png" alt="React" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                        <img src="./assets/images/img_express_js_logo.svg" alt="Express" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                        <img src="./assets/images/img_express_js_logo_blue_gray_600.svg" alt="Tech" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                        <img src="./assets/images/img_express_js_logo_32x32.png" alt="Tech" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <div class="flex items-center gap-4 sm:gap-5 tech-stack" data-aos="fade-in" data-aos-delay="400" data-aos-duration="600">
+    <img src="./assets/images/img_file_type_reactjs.png" alt="React" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn animate-fadeIn" />
+    <img src="./assets/images/img_express_js_logo.svg" alt="Express" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn animate-fadeIn" />
+    <img src="./assets/images/img_express_js_logo_blue_gray_600.svg" alt="Tech" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn animate-fadeIn" />
+    <img src="./assets/images/img_express_js_logo_32x32.png" alt="Tech" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn animate-fadeIn" />
                                     </div>
                                 </div>
-                                <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors">Live Preview</button>
+                                <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors btn-hover popIn" data-aos="fade-in" data-aos-delay="500" data-aos-duration="600">Live Preview</button>
                             </div>
                         </div>
 
                         <!-- DevLinks Project -->
-                        <div class="lg:max-w-[70%] ml-auto rounded-[32px] p-6 sm:p-8 space-y-6 fade-right" data-aos="fade-right">
+    <div class="lg:max-w-[70%] ml-auto rounded-[32px] p-6 sm:p-8 space-y-6 project-card popUp" data-aos="fade-right" data-aos-delay="100" data-aos-duration="800">
                             <div class="bg-white rounded-3xl p-1">
                                 <img src="./assets/images/img_devlinks_1.png" alt="DevLinks Platform" class="w-full h-auto rounded-3xl" />
                             </div>
                             <div class="space-y-8 sm:space-y-14">
                                 <div class="space-y-6 sm:space-y-8">
                                     <div class="space-y-2">
-                                        <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white leading-tight">A Developer Link Management Platform</h3>
-                                        <p class="text-sm sm:text-base font-light text-[#ffffff7f] leading-relaxed">DevLinks is a web app for managing and sharing links easily. It offers link CRUD, drag-and-drop, real-time previews, and profile setup with pictures.</p>
+                                        <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white leading-tight" data-aos="fade-in" data-aos-delay="200" data-aos-duration="600">A Developer Link Management Platform</h3>
+                                        <p class="text-sm sm:text-base font-light text-[#ffffff7f] leading-relaxed" data-aos="fade-in" data-aos-delay="300" data-aos-duration="600">DevLinks is a web app for managing and sharing links easily. It offers link CRUD, drag-and-drop, real-time previews, and profile setup with pictures.</p>
                                     </div>
-                                    <div class="flex items-center gap-4 sm:gap-5">
-                                        <img src="./assets/images/img_file_type_reactjs.png" alt="React" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                        <img src="./assets/images/img_svg_xml_base64_light_blue_700.png" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                        <img src="./assets/images/img_express_js_logo_white_a700.svg" alt="Express" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                        <img src="./assets/images/img_express_js_logo_white_a700_32x32.svg" alt="Tech" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                        <img src="./assets/images/img_express_js_logo_green_500.svg" alt="MongoDB" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                        <img src="./assets/images/img_express_js_logo_32x32.png" alt="Tailwind" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <div class="flex items-center gap-4 sm:gap-5 tech-stack" data-aos="fade-in" data-aos-delay="400" data-aos-duration="600">
+                                        <img src="./assets/images/img_file_type_reactjs.png" alt="React" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn" />
+    <img src="./assets/images/img_svg_xml_base64_light_blue_700.png" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn animate-fadeIn" />
+    <img src="./assets/images/img_express_js_logo_white_a700.svg" alt="Express" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn animate-fadeIn" />
+    <img src="./assets/images/img_express_js_logo_white_a700_32x32.svg" alt="Tech" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn animate-fadeIn" />
+    <img src="./assets/images/img_express_js_logo_green_500.svg" alt="MongoDB" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn animate-fadeIn" />
+                                        <img src="./assets/images/img_express_js_logo_32x32.png" alt="Tailwind" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn" />
                                     </div>
                                 </div>
-                                <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors">Live Preview</button>
+                                <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors btn-hover popIn" data-aos="fade-in" data-aos-delay="500" data-aos-duration="600">Live Preview</button>
                             </div>
                         </div>
                     </div>
@@ -194,105 +324,105 @@
                     <!-- Row 2: Kanban & Jikoo -->
                     <div class="grid grid-cols-1 gap-8 lg:gap-16">
                         <!-- Kanban Project -->
-                        <div class="lg:max-w-[70%] mr-auto rounded-[32px] p-6 sm:p-8 space-y-6 fade-left" data-aos="fade-left">
+                     <div class="lg:max-w-[70%] mr-auto rounded-[32px] p-6 sm:p-8 space-y-6 project-card" data-aos="fade-in" data-aos-delay="300" data-aos-duration="800">
                             <div class="bg-white rounded-3xl p-1">
                                 <img src="./assets/images/img_kanban_1.png" alt="Kanban Board" class="w-full h-auto rounded-3xl" />
                             </div>
                             <div class="space-y-8 sm:space-y-14">
                                 <div class="space-y-6 sm:space-y-8">
                                     <div class="space-y-2">
-                                        <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white leading-tight">An Interactive Kanban Board for Task Management</h3>
-                                        <p class="text-sm sm:text-base font-light text-[#ffffff7f] leading-relaxed">The Kanban app is a full-stack project management tool for creating, updating, and managing boards and tasks. It includes task tracking, column moves, sidebar toggle, and theme switching.</p>
+                                        <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white leading-tight" data-aos="fade-in" data-aos-delay="300" data-aos-duration="600">An Interactive Kanban Board for Task Management</h3>
+                                        <p class="text-sm sm:text-base font-light text-[#ffffff7f] leading-relaxed" data-aos="fade-in" data-aos-delay="400" data-aos-duration="600">The Kanban app is a full-stack project management tool for creating, updating, and managing boards and tasks. It includes task tracking, column moves, sidebar toggle, and theme switching.</p>
                                     </div>
-                                    <div class="flex items-center gap-4 sm:gap-5">
-                                        <img src="./assets/images/img_file_type_reactjs.png" alt="React" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                        <img src="./assets/images/img_svg_xml_base64_light_blue_700.png" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                        <img src="./assets/images/img_express_js_logo_white_a700.svg" alt="Express" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                        <img src="./assets/images/img_express_js_logo_blue_gray_600.svg" alt="Tech" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                        <img src="./assets/images/img_express_js_logo_32x32.png" alt="Tailwind" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <div class="flex items-center gap-4 sm:gap-5 tech-stack" data-aos="fade-in" data-aos-delay="500" data-aos-duration="600">
+                                        <img src="./assets/images/img_file_type_reactjs.png" alt="React" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn" />
+                                        <img src="./assets/images/img_svg_xml_base64_light_blue_700.png" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn" />
+                                        <img src="./assets/images/img_express_js_logo_white_a700.svg" alt="Express" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn" />
+                                        <img src="./assets/images/img_express_js_logo_blue_gray_600.svg" alt="Tech" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn" />
+                                        <img src="./assets/images/img_express_js_logo_32x32.png" alt="Tailwind" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn" />
                                     </div>
                                 </div>
-                                <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors">Live Preview</button>
+                                <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors btn-hover popIn" data-aos="fade-in" data-aos-delay="600" data-aos-duration="600">Live Preview</button>
                             </div>
                         </div>
 
                         <!-- Jikoo Project -->
-                        <div class="space-y-6 lg:max-w-[70%] rounded-[32px] ml-auto fade-right" data-aos="fade-right">
+    <div class="space-y-6 lg:max-w-[70%] rounded-[32px] ml-auto project-card popUp" data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
                             <div class="bg-white rounded-3xl p-1">
                                 <img src="./assets/images/newsflashlatest.jpeg" alt="News Flash Latest" class="w-full h-1/2 max-h-[500px] rounded-3xl" />
                             </div>
                             <div class="space-y-6 sm:space-y-8">
                                 <div class="space-y-2">
-                                    <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white">NewsFlashLatest Website</h3>
-                                    <p class="text-sm sm:text-base font-light text-[#ffffff7f] leading-relaxed">A blog site bringing you trending topics, important tips and helpful guides</p>
+                                    <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white" data-aos="fade-in" data-aos-delay="300" data-aos-duration="600">NewsFlashLatest Website</h3>
+                                    <p class="text-sm sm:text-base font-light text-[#ffffff7f] leading-relaxed" data-aos="fade-in" data-aos-delay="400" data-aos-duration="600">A blog site bringing you trending topics, important tips and helpful guides</p>
                                 </div>
-                                <div class="flex items-center gap-4 sm:gap-5">
-                                    <div class="relative w-7 h-6">
-                                        <div class="absolute top-2 left-3 w-1 h-1 bg-[#00d8ff] rounded-full"></div>
-                                        <img src="./assets/images/img_vector_cyan_a400.svg" alt="React" class="absolute top-0 left-0 w-auto h-3" />
-                                        <img src="./assets/images/img_vector_cyan_a400_24x16.svg" alt="React" class="absolute top-0 left-1 w-auto h-6" />
-                                        <img src="./assets/images/img_vector_24x16.svg" alt="React" class="absolute top-0 left-1 w-auto h-6" />
+                                    <div class="flex items-center gap-4 sm:gap-5 tech-stack" data-aos="fade-in" data-aos-delay="500" data-aos-duration="600">
+                                        <div class="relative w-7 h-6">
+                                            <div class="absolute top-2 left-3 w-1 h-1 bg-[#00d8ff] rounded-full"></div>
+    <img src="./assets/images/img_vector_cyan_a400.svg" alt="React" class="absolute top-0 left-0 w-auto h-3 tech-icon popIn animate-fadeIn" />
+    <img src="./assets/images/img_vector_cyan_a400_24x16.svg" alt="React" class="absolute top-0 left-1 w-auto h-6 tech-icon popIn animate-fadeIn" />
+    <img src="./assets/images/img_vector_24x16.svg" alt="React" class="absolute top-0 left-1 w-auto h-6 tech-icon popIn animate-fadeIn" />
+                                        </div>
+                                        <img src="./assets/images/img_svg_xml_base64_light_blue_700.png" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn" />
+    <img src="./assets/images/img_gsap_logo.svg" alt="GSAP" class="w-auto h-6 sm:h-8 tech-icon popIn animate-fadeIn" />
+                                        <img src="./assets/images/img_express_js_logo_32x32.png" alt="Tailwind" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn" />
+    <img src="./assets/images/img_express_js_logo_green_700.svg" alt="Supabase" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn animate-fadeIn" />
+    <img src="./assets/images/img_express_js_logo_light_green_500_01.svg" alt="NodeJs" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn animate-fadeIn" />
+                                        <img src="./assets/images/img_express_js_logo_white_a700_32x32.svg" alt="ExpressJs" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn" />
                                     </div>
-                                    <img src="./assets/images/img_svg_xml_base64_light_blue_700.png" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                    <img src="./assets/images/img_gsap_logo.svg" alt="GSAP" class="w-auto h-6 sm:h-8" />
-                                    <img src="./assets/images/img_express_js_logo_32x32.png" alt="Tailwind" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                    <img src="./assets/images/img_express_js_logo_green_700.svg" alt="Supabase" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                    <img src="./assets/images/img_express_js_logo_light_green_500_01.svg" alt="NodeJs" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                    <img src="./assets/images/img_express_js_logo_white_a700_32x32.svg" alt="ExpressJs" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                </div>
                             </div>
-                            <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors" onclick="window.location = 'https://newsflashlatest.vercel.app'">Live Preview</button>
+                            <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors btn-hover popIn" data-aos="fade-in" data-aos-delay="600" data-aos-duration="600" onclick="window.location = 'https://newsflashlatest.vercel.app'">Live Preview</button>
                         </div>
                     </div>
 
                     <!-- Row 3: Assure & Hangman -->
                     <div class="grid grid-cols-1 gap-8 lg:gap-16">
                         <!-- Assure Project -->
-                        <div class="lg:max-w-[70%] mr-auto rounded-[32px] p-6 sm:p-8 space-y-6 fade-left" data-aos="fade-left">
+                        <div class="lg:max-w-[70%] mr-auto rounded-[32px] p-6 sm:p-8 space-y-6 project-card" data-aos="fade-in" data-aos-delay="300" data-aos-duration="800">
                             <div class="bg-white rounded-3xl p-1">
                                 <img src="./assets/images/img_main_landing_page.png" alt="Assure Website" class="w-full h-auto rounded-3xl" />
                             </div>
                             <div class="space-y-8 sm:space-y-14">
                                 <div class="space-y-6 sm:space-y-13">
                                     <div class="space-y-2">
-                                        <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white">Assure Website</h3>
-                                        <p class="text-sm sm:text-base font-light text-[#ffffff7f]">Assure is a virtual care delivery to empower both patients and clinicians.</p>
+                                        <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white" data-aos="fade-in" data-aos-delay="400" data-aos-duration="600">Assure Website</h3>
+                                        <p class="text-sm sm:text-base font-light text-[#ffffff7f]" data-aos="fade-in" data-aos-delay="500" data-aos-duration="600">Assure is a virtual care delivery to empower both patients and clinicians.</p>
                                     </div>
-                                    <div class="flex items-center gap-4 sm:gap-5">
-                                        <img src="./assets/images/img_file_type_reactjs.png" alt="React" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                        <img src="./assets/images/img_svg_xml_base64_light_blue_700.png" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                        <img src="./assets/images/img_express_js_logo_white_a700.svg" alt="Express" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                        <img src="./assets/images/img_express_js_logo_32x32.png" alt="Tailwind" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                    <div class="flex items-center gap-4 sm:gap-5 tech-stack" data-aos="fade-in" data-aos-delay="600" data-aos-duration="600">
+                                        <img src="./assets/images/img_file_type_reactjs.png" alt="React" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn" />
+                                        <img src="./assets/images/img_svg_xml_base64_light_blue_700.png" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn" />
+                                        <img src="./assets/images/img_express_js_logo_white_a700.svg" alt="Express" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn" />
+                                        <img src="./assets/images/img_express_js_logo_32x32.png" alt="Tailwind" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn" />
                                     </div>
                                 </div>
-                                <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors">Live Preview</button>
+                                <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors btn-hover popIn" data-aos="fade-in" data-aos-delay="700" data-aos-duration="600">Live Preview</button>
                             </div>
                         </div>
 
                         <!-- Hangman Project -->
-                        <div class="lg:max-w-[70%] ml-auto rounded-[32px] p-6 sm:p-8 space-y-6 fade-right " data-aos="fade-right">
-                            <div class="bg-white rounded-3xl p-1">
+                        <div class="lg:max-w-[70%] ml-auto rounded-[32px] p-6 sm:p-8 space-y-6 project-card" data-aos="fade-right" data-aos-delay="300" data-aos-duration="800">
+                            <div class="bg-white rounded-3xl p-1 popIn">
                                 <img src="./assets/images/img_hangman_1.png" alt="Hangman Game" class="w-full h-auto rounded-3xl" />
                             </div>
                             <div class="space-y-8 sm:space-y-14">
                                 <div class="space-y-6 sm:space-y-8">
                                     <div class="space-y-2">
-                                        <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white leading-tight">An Interactive and Engaging Hangman Challenge</h3>
-                                        <p class="text-sm sm:text-base font-light text-[#ffffff7f] leading-relaxed">The Hangman Game lets you test your knowledge across six categories—movies, TV shows, animals, capitals, countries, and sports. With 8 guesses, challenge your word skills and uncover hidden phrases before the hangman is complete!</p>
+                                        <h3 class="text-xl sm:text-2xl lg:text-[32px] font-normal text-white leading-tight" data-aos="fade-in" data-aos-delay="400" data-aos-duration="600">An Interactive and Engaging Hangman Challenge</h3>
+                                        <p class="text-sm sm:text-base font-light text-[#ffffff7f] leading-relaxed" data-aos="fade-in" data-aos-delay="500" data-aos-duration="600">The Hangman Game lets you test your knowledge across six categories—movies, TV shows, animals, capitals, countries, and sports. With 8 guesses, challenge your word skills and uncover hidden phrases before the hangman is complete!</p>
                                     </div>
-                                    <div class="flex items-center gap-4 sm:gap-5">
+                                    <div class="flex items-center gap-4 sm:gap-5 tech-stack" data-aos="fade-in" data-aos-delay="600" data-aos-duration="600">
                                         <div class="relative w-7 h-6">
                                             <div class="absolute top-2 left-3 w-1 h-1 bg-[#00d8ff] rounded-full"></div>
-                                            <img src="./assets/images/img_vector_cyan_a400.svg" alt="React" class="absolute top-0 left-0 w-auto h-3" />
-                                            <img src="./assets/images/img_vector_cyan_a400_24x16.svg" alt="React" class="absolute top-0 left-1 w-auto h-6" />
-                                            <img src="./assets/images/img_vector_24x16.svg" alt="React" class="absolute top-0 left-1 w-auto h-6" />
+                                            <img src="./assets/images/img_vector_cyan_a400.svg" alt="React" class="absolute top-0 left-0 w-auto h-3 tech-icon popIn" />
+                                            <img src="./assets/images/img_vector_cyan_a400_24x16.svg" alt="React" class="absolute top-0 left-1 w-auto h-6 tech-icon popIn" />
+                                            <img src="./assets/images/img_vector_24x16.svg" alt="React" class="absolute top-0 left-1 w-auto h-6 tech-icon popIn" />
                                         </div>
-                                        <img src="./assets/images/img_svg_xml_base64_light_blue_700.png" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                        <img src="./assets/images/img_express_js_logo_blue_gray_600.svg" alt="Tech" class="w-6 h-6 sm:w-8 sm:h-8" />
-                                        <img src="./assets/images/img_vector_18x30.png" alt="Tech" class="w-auto h-6 sm:h-8" />
+                                        <img src="./assets/images/img_svg_xml_base64_light_blue_700.png" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn" />
+                                        <img src="./assets/images/img_express_js_logo_blue_gray_600.svg" alt="Tech" class="w-6 h-6 sm:w-8 sm:h-8 tech-icon popIn" />
+                                        <img src="./assets/images/img_vector_18x30.png" alt="Tech" class="w-auto h-6 sm:h-8 tech-icon popIn animate-fadeIn" />
                                     </div>
                                 </div>
-                                <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors">Live Preview</button>
+                                <button class="border border-white text-[#e9ecef] px-4 py-3 sm:px-4 sm:py-4 rounded-2xl text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors btn-hover popIn" data-aos="fade-in" data-aos-delay="700" data-aos-duration="600">Live Preview</button>
                             </div>
                         </div>
                     </div>
@@ -302,25 +432,25 @@
     </section>
 
     <!-- Personal Story Section -->
-    <section id="about" class="w-full bg-black py-16 sm:py-20" data-aos="fade-up">
+    <section id="about" class="w-full bg-black py-16 sm:py-20">
         <div class="w-full lg:max-w-[1238px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="space-y-6">
-                <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-light text-white">Creating, Crashing, Solving — On Repeat 😎</h2>
+            <div class="space-y-6 fade-in">
+                <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-light text-white text-gradient fade-in delay-100">Creating, Crashing, Solving — On Repeat 😎</h2>
 
-                <div class="flex flex-col lg:flex-row gap-6">
+                <div class="flex flex-col lg:flex-row gap-6 fade-in delay-200">
                     <!-- Text Content -->
-                    <div class="bg-[#0e0e0e] rounded-[32px] p-6 sm:p-8 flex-1">
+                    <div class="bg-[#0e0e0e] rounded-[32px] p-6 sm:p-8 flex-1 shadow-lg">
                         <p class="text-md md:text-lg lg:text-xl font-light text-[#ffffff7f] leading-relaxed">
-                            I bring ideas to life with code—sometimes things break, but that’s half the fun. From dynamic websites to fullstack apps and custom game logic, I use tools like Python, React, Next.js, and Node.js to make projects that are fast, functional, and just a bit smarter.<br /><br />
-                            I’ve worked on everything from 3D terrain systems in Godot to sleek dashboards and interactive UI experiences. Math challenges? I welcome them—especially when they push my logic and creativity.<br /><br />
+                            I bring ideas to life with code—sometimes things break, but that’s half the fun. From dynamic websites to fullstack apps and custom game logic, I use tools like Python, React, Next.js, Node.js, and C# to make projects that are fast, functional, and just a bit smarter.<br /><br />
+                            I’ve worked on everything from 3D terrain systems in Godot to sleek dashboards and interactive UI experiences. I also specialize in data analysis, creating insightful visualizations and reports that help businesses make data-driven decisions. Math challenges? I welcome them—especially when they push my logic and creativity.<br /><br />
                             When I’m not coding, I’m usually experimenting with something new, solving problems for fun, or mastering the next game level. Did I mention I call myself DavinDicator?
                         </p>
                     </div>
 
                     <!-- Image Stack -->
-                    <div class="relative bg-[#6640ed] rounded-[32px] w-full lg:w-[402px] h-[362px]">
-                        <img src="./assets/images/me.jpg" alt="Victor Akande" class="absolute inset-0 w-full h-full object-cover rounded-[32px]" />
-                        <img src="./assets/images/img_svg_xml_base64_black_900.png" alt="Overlay" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 h-auto" />
+                    <div class="relative bg-[#6640ed] rounded-[32px] w-full lg:w-[402px] h-[362px] overflow-hidden shadow-lg pulse">
+                        <img src="./assets/images/me.jpg" alt="Victor Akande" class="absolute inset-0 w-full h-full object-cover rounded-[32px] transition-transform duration-500 hover:scale-105" />
+                        <img src="./assets/images/img_svg_xml_base64_black_900.png" alt="Overlay" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 h-auto pulse" />
                     </div>
                 </div>
             </div>
@@ -328,100 +458,116 @@
     </section>
 
     <!-- Tech Stack Section -->
-    <section class="w-full bg-black py-16 sm:py-20" data-aos="fade-in">
+    <section class="w-full bg-black py-16 sm:py-20">
         <div class="w-full lg:max-w-[1238px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="space-y-6">
-                <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-light text-white">My Tech Stack</h2>
+            <div class="space-y-6 fade-in">
+                <h2 class="text-3xl sm:text-4xl lg:text-[48px] font-light text-white text-gradient fade-in delay-100">My Tech Stack</h2>
 
-                <div class="flex flex-col lg:flex-row gap-6">
+                <div class="flex flex-col lg:flex-row gap-6 fade-in delay-200">
                     <!-- Tech Grid -->
-                    <div class="bg-[#0e0e0e] rounded-[32px] p-6 sm:p-8 flex-1">
+                    <div class="bg-[#0e0e0e] rounded-[32px] p-6 sm:p-8 flex-1 shadow-lg">
                         <div class="space-y-6 sm:space-y-8">
                             <!-- Row 1 -->
                             <div class="flex flex-wrap gap-4 sm:gap-6 lg:gap-8">
-                                <div class="flex items-center gap-2">
-                                    <img src="./assets/images/img_express_js_logo_cyan_a400.svg" alt="React" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                <div class="flex items-center gap-2 skill-item fade-in delay-100">
+                                    <img src="./assets/images/img_express_js_logo_cyan_a400.svg" alt="React" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
                                     <span class="text-xs sm:text-sm text-white">React</span>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <img src="./assets/images/img_express_js_logo_deep_orange_a200.svg" alt="React Query" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                <div class="flex items-center gap-2 skill-item fade-in delay-200">
+                                    <img src="./assets/images/img_express_js_logo_deep_orange_a200.svg" alt="React Query" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
                                     <span class="text-xs sm:text-sm text-white">React Query</span>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <img src="./assets/images/img_express_js_logo_light_green_500_01.svg" alt="NodeJs" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                <div class="flex items-center gap-2 skill-item fade-in delay-300">
+                                    <img src="./assets/images/img_express_js_logo_light_green_500_01.svg" alt="NodeJs" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
                                     <span class="text-xs sm:text-sm text-white">NodeJs</span>
                                 </div>
                             </div>
 
                             <!-- Row 2 -->
                             <div class="flex flex-wrap gap-4 sm:gap-6 lg:gap-8">
-                                <div class="flex items-center gap-2">
-                                    <img src="./assets/images/img_express_js_logo_light_blue_700.svg" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                <div class="flex items-center gap-2 skill-item fade-in delay-100">
+                                    <img src="./assets/images/img_express_js_logo_light_blue_700.svg" alt="TypeScript" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
                                     <span class="text-xs sm:text-sm text-white">TypeScript</span>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <img src="./assets/images/img_express_js_logo_pink_300.svg" alt="SASS" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                <div class="flex items-center gap-2 skill-item fade-in delay-200">
+                                    <img src="./assets/images/img_express_js_logo_pink_300.svg" alt="SASS" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
                                     <span class="text-xs sm:text-sm text-white">SASS</span>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <img src="./assets/images/img_express_js_logo_blue_gray_600.svg" alt="Framer Motion" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                <div class="flex items-center gap-2 skill-item fade-in delay-300">
+                                    <img src="./assets/images/img_express_js_logo_blue_gray_600.svg" alt="Framer Motion" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
                                     <span class="text-xs sm:text-sm text-white">Framer Motion</span>
                                 </div>
                             </div>
 
                             <!-- Row 3 -->
                             <div class="flex flex-wrap gap-4 sm:gap-6 lg:gap-8">
-                                <div class="flex items-center gap-2">
-                                    <img src="./assets/images/img_express_js_logo_white_a700_32x32.svg" alt="ExpressJs" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                <div class="flex items-center gap-2 skill-item fade-in delay-100">
+                                    <img src="./assets/images/img_express_js_logo_white_a700_32x32.svg" alt="ExpressJs" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
                                     <span class="text-xs sm:text-sm text-white">ExpressJs</span>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <img src="./assets/images/img_express_js_logo_amber_400.svg" alt="JavaScript" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                <div class="flex items-center gap-2 skill-item fade-in delay-200">
+                                    <img src="./assets/images/img_express_js_logo_amber_400.svg" alt="JavaScript" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
                                     <span class="text-xs sm:text-sm text-white">JavaScript</span>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <img src="./assets/images/img_express_js_logo.svg" alt="Redux" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                <div class="flex items-center gap-2 skill-item fade-in delay-300">
+                                    <img src="./assets/images/img_express_js_logo.svg" alt="Redux" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
                                     <span class="text-xs sm:text-sm text-white">Redux</span>
                                 </div>
                             </div>
 
                             <!-- Row 4 -->
                             <div class="flex flex-wrap gap-4 sm:gap-6 lg:gap-8">
-                                <div class="flex items-center gap-2">
-                                    <img src="./assets/images/img_express_js_logo_green_500.svg" alt="MongoDB" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                <div class="flex items-center gap-2 skill-item fade-in delay-100">
+                                    <img src="./assets/images/img_express_js_logo_green_500.svg" alt="MongoDB" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
                                     <span class="text-xs sm:text-sm text-white">MongoDB</span>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <img src="./assets/images/img_express_js_logo_red_600.svg" alt="Git" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                <div class="flex items-center gap-2 skill-item fade-in delay-200">
+                                    <img src="./assets/images/img_express_js_logo_red_600.svg" alt="Git" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
                                     <span class="text-xs sm:text-sm text-white">Git</span>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <img src="./assets/images/img_express_js_logo_purple_300.svg" alt="Styled Components" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                <div class="flex items-center gap-2 skill-item fade-in delay-300">
+                                    <img src="./assets/images/img_express_js_logo_purple_300.svg" alt="Styled Components" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
                                     <span class="text-xs sm:text-sm text-white">Styled Components</span>
                                 </div>
                             </div>
 
                             <!-- Row 5 -->
                             <div class="flex flex-wrap gap-4 sm:gap-6 lg:gap-8">
-                                <div class="flex items-center gap-2">
-                                    <img src="./assets/images/img_express_js_logo_32x32.png" alt="TailwindCss" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                <div class="flex items-center gap-2 skill-item fade-in delay-100">
+                                    <img src="./assets/images/img_express_js_logo_32x32.png" alt="TailwindCss" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
                                     <span class="text-xs sm:text-sm text-white">TailwindCss</span>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <img src="./assets/images/img_express_js_logo_white_a700.svg" alt="Next.js" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                <div class="flex items-center gap-2 skill-item fade-in delay-200">
+                                    <img src="./assets/images/img_express_js_logo_white_a700.svg" alt="Next.js" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
                                     <span class="text-xs sm:text-sm text-white">Next.js</span>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <img src="./assets/images/img_express_js_logo_green_700.svg" alt="Supabase" class="w-6 h-6 sm:w-8 sm:h-8" />
+                                <div class="flex items-center gap-2 skill-item fade-in delay-300">
+                                    <img src="./assets/images/img_express_js_logo_green_700.svg" alt="Supabase" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
                                     <span class="text-xs sm:text-sm text-white">Supabase</span>
+                                </div>
+                            </div>
+
+                            <!-- Row 6 - Added C# and Data Analysis -->
+                            <div class="flex flex-wrap gap-4 sm:gap-6 lg:gap-8">
+                                <div class="flex items-center gap-2 skill-item fade-in delay-100">
+                                    <img src="./assets/images/img_express_js_logo_purple_300.svg" alt="C#" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
+                                    <span class="text-xs sm:text-sm text-white">C#</span>
+                                </div>
+                                <div class="flex items-center gap-2 skill-item fade-in delay-200">
+                                    <img src="./assets/images/img_express_js_logo_blue_gray_600.svg" alt="Data Analysis" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
+                                    <span class="text-xs sm:text-sm text-white">Data Analysis</span>
+                                </div>
+                                <div class="flex items-center gap-2 skill-item fade-in delay-300">
+                                    <img src="./assets/images/img_express_js_logo_amber_400.svg" alt="Avalonia" class="w-6 h-6 sm:w-8 sm:h-8 transition-transform hover:scale-110" />
+                                    <span class="text-xs sm:text-sm text-white">Avalonia</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Code Image -->
-                    <div class="bg-[#6640ed] rounded-[32px] w-full lg:w-[622px] h-[362px] flex items-center justify-center">
-                        <img src="./assets/images/laptop_picture.jpg" alt="Code Editor" class="w-full h-full object-cover rounded-[32px]" />
+                    <div class="bg-[#6640ed] rounded-[32px] w-full lg:w-[622px] h-[362px] flex items-center justify-center overflow-hidden shadow-lg pulse">
+                        <img src="./assets/images/laptop_picture.jpg" alt="Code Editor" class="w-full h-full object-cover rounded-[32px] transition-transform duration-500 hover:scale-105" />
                     </div>
                 </div>
             </div>
@@ -433,33 +579,44 @@
         <div class="w-full lg:max-w-[1238px] mx-auto px-4 sm:px-6 lg:px-8">
             <div class="space-y-16 sm:space-y-28">
                 <!-- Header -->
-                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
-                    <div class="space-y-4">
-                        <h2 class="text-4xl sm:text-5xl lg:text-[64px] font-light text-white leading-tight">Say hello</h2>
-                        <p class="text-2xl sm:text-3xl lg:text-[36px] font-normal text-[#ffffff4c] leading-tight">Have a project in mind? Let's work together.</p>
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 fade-in">
+                    <div class="space-y-4 fade-in delay-100">
+                        <h2 class="text-4xl sm:text-5xl lg:text-[64px] font-light text-white leading-tight text-gradient">Say hello</h2>
+                        <p class="text-2xl sm:text-3xl lg:text-[36px] font-normal text-[#ffffff4c] leading-tight fade-in delay-200">Have a project in mind? Let's work together.</p>
                     </div>
-                    <img src="./assets/images/img_vector_white_a700_68x68.svg" alt="Arrow" class="w-12 h-12 sm:w-16 sm:h-16 lg:w-[68px] lg:h-[68px]" />
+                    <img src="./assets/images/img_vector_white_a700_68x68.svg" alt="Arrow" class="w-12 h-12 sm:w-16 sm:h-16 lg:w-[68px] lg:h-[68px] pulse fade-in delay-300" />
                 </div>
 
                 <!-- Email and Social -->
-                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
-                    <h3 class="text-2xl md:text-4xl font-light text-[#ffffff4c] leading-tight">victorakande090@gmail.com</h3>
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 fade-in delay-400">
+                    <h3 class="text-2xl md:text-4xl font-light text-[#ffffff4c] leading-tight heartbeat">victorakande090@gmail.com</h3>
                     <div class="flex items-center gap-8 sm:gap-10">
-                        <img src="./assets/images/img_social_icons.svg" onclick="window.location = 'https://x.com/DavinDicator?t=DuquoHn5wqq12teNv2ctKw&s=09'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
-                        <img src="./assets/images/img_vector.svg" onclick="window.location = 'https://wa.me/2349051217349'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
-                        <img src="./assets/images/img_vector_white_a700.svg" onclick="window.location = 'https://linkedin.com/in/davindicator'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
-                        <img src="./assets/images/img_social_icons_white_a700.svg" onclick="window.location = 'https://github.com/davindicator001'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer" />
+                        <img src="./assets/images/img_social_icons.svg" onclick="window.location = 'https://x.com/DavinDicator?t=DuquoHn5wqq12teNv2ctKw&s=09'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer social-icon" />
+                        <img src="./assets/images/img_vector.svg" onclick="window.location = 'https://wa.me/2349051217349'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer social-icon" />
+                        <img src="./assets/images/img_vector_white_a700.svg" onclick="window.location = 'https://linkedin.com/in/davindicator'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer social-icon" />
+                        <img src="./assets/images/img_social_icons_white_a700.svg" onclick="window.location = 'https://github.com/davindicator001'" alt="Social" class="w-6 h-6 hover:opacity-80 transition-opacity cursor-pointer social-icon" />
                     </div>
                 </div>
             </div>
         </div>
     </footer>
     <script>
+        // Initialize AOS with enhanced settings
         AOS.init({
-          duration: 800,
-          once: false
+            duration: 800,
+            once: false,
+            offset: 100,
+            easing: 'ease-out-sine',
+            disable: function() {
+                // Disable AOS on mobile devices
+                const maxWidth = 768;
+                return window.innerWidth < maxWidth;
+            }
         });
-      </script>
+    </script>
+    <script src="./assets/js/mobile-panel.js"></script>
+    <script src="./assets/js/enhanced-animations.js"></script>
+    <script src="./libraries/scroll-animations.js"></script>
     <script id="dhws-dataInjector" src="./public/dhws-data-injector.js"></script>
 </body>
 
